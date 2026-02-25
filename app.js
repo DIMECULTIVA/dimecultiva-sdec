@@ -1,25 +1,48 @@
-// Wait for the HTML document to fully load before running the script
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Grab the elements from the HTML
-    const slider = document.getElementById('kVa-slider');
-    const output = document.getElementById('kVa-output');
-    const recommendationText = document.getElementById('recommendation-text');
+    // Create a GSAP Timeline for smooth, sequenced animations
+    const tl = gsap.timeline();
 
-    // Add an event listener to detect when the user moves the slider
-    slider.addEventListener('input', function() {
-        const kVaValue = this.value;
-        
-        // Update the number on the screen dynamically
-        output.textContent = kVaValue;
+    // 1. Animate the Navigation Bar sliding down
+    tl.from(".navbar", {
+        y: -100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    })
+    
+    // 2. Animate the Main Title (pops up and fades in)
+    .from(".anim-title", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+    }, "-=0.4") // The "-=0.4" makes it start slightly before the previous animation finishes
+    
+    // 3. Animate the Subtitle text
+    .from(".anim-text", {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out"
+    }, "-=0.4")
+    
+    // 4. Animate the Buttons popping in
+    .from(".anim-buttons .btn", {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.2, // This staggers them so they appear one after the other
+        ease: "back.out(1.7)" // Adds a slight bounce effect
+    }, "-=0.2")
 
-        // Provide logic to change the text based on the size chosen
-        if (kVaValue <= 150) {
-            recommendationText.textContent = "Perfect for small to medium construction sites or retail backup.";
-        } else if (kVaValue > 150 && kVaValue <= 500) {
-            recommendationText.textContent = "Ideal for medium industrial applications, large events, and clinics.";
-        } else {
-            recommendationText.textContent = "Heavy-duty power for mining, large manufacturing, or data centers.";
-        }
-    });
+    // 5. Animate the Value Cards at the bottom
+    .from(".anim-card", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out"
+    }, "-=0.2");
+
 });

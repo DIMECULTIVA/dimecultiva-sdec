@@ -1,112 +1,155 @@
 :root {
     --primary-orange: #f47b20;
     --primary-blue: #1c355e;
-    --bg-dark: #080808;
-    --text-main: #ffffff;
+    --bg-light: #f8f9fa;
+    --surface-white: #ffffff;
+    --text-dark: #2b2b2b;
+    --text-gray: #6c757d;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    overflow-x: hidden; /* Prevents animation scroll bugs */
 }
 
-header {
+/* Modern Navigation */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid var(--primary-orange);
+    background-color: var(--surface-white);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .logo {
-    height: 60px;
-    width: auto;
+    height: 50px;
 }
 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-orange);
+}
+
+/* Buttons */
 .btn {
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 12px 28px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.2s, background-color 0.2s;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.btn-whatsapp {
-    background-color: #25D366;
+.btn-primary {
+    background-color: var(--primary-orange);
+    color: white;
+    border: 2px solid var(--primary-orange);
+}
+
+.btn-primary:hover {
+    background-color: #d96815;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(244, 123, 32, 0.3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-blue);
     color: white;
 }
 
-.btn-whatsapp:hover {
-    background-color: #1ebd5a;
-    transform: translateY(-2px);
-}
-
-.glass-effect {
-    background: rgba(28, 53, 94, 0.1);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-}
-
-.hero {
+/* Clean Hero Section */
+.hero-light {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 100px 20px;
-    margin: 20px 5%;
+    padding: 0 5%;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%);
 }
 
-.hero h1 {
-    color: var(--primary-orange);
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.hero-content {
+    max-width: 800px;
 }
 
-.calculator-section {
-    padding: 40px 5%;
-    text-align: center;
-    flex-grow: 1;
-}
-
-.calculator-card {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 30px;
-}
-
-input[type=range] {
-    width: 100%;
-    margin: 20px 0;
-    accent-color: var(--primary-orange);
+.hero-content h1 {
+    font-size: 4.5rem;
+    color: var(--primary-blue);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
 }
 
 .highlight {
     color: var(--primary-orange);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: var(--text-gray);
+    margin-bottom: 2.5rem;
+}
+
+.anim-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Cards Section */
+.value-props {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 5rem 5%;
+    background-color: var(--surface-white);
+}
+
+.prop-card {
+    background: var(--surface-white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 30%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-bottom: 4px solid var(--primary-orange);
+}
+
+.prop-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
     font-size: 1.5rem;
-    font-weight: bold;
 }
 
-footer {
-    background: #000;
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid #333;
-}
-
-footer a {
-    color: var(--primary-orange);
-    text-decoration: none;
+.prop-card p {
+    color: var(--text-gray);
+    line-height: 1.6;
 }
