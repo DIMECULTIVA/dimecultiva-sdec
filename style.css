@@ -1,0 +1,112 @@
+:root {
+    --primary-orange: #f47b20;
+    --primary-blue: #1c355e;
+    --bg-dark: #080808;
+    --text-main: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--primary-orange);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebd5a;
+    transform: translateY(-2px);
+}
+
+.glass-effect {
+    background: rgba(28, 53, 94, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    margin: 20px 5%;
+}
+
+.hero h1 {
+    color: var(--primary-orange);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.calculator-section {
+    padding: 40px 5%;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.calculator-card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 30px;
+}
+
+input[type=range] {
+    width: 100%;
+    margin: 20px 0;
+    accent-color: var(--primary-orange);
+}
+
+.highlight {
+    color: var(--primary-orange);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+footer {
+    background: #000;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #333;
+}
+
+footer a {
+    color: var(--primary-orange);
+    text-decoration: none;
+}
